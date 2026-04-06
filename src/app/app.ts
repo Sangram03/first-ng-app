@@ -1,16 +1,19 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './header/header';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [RouterOutlet, HeaderComponent],
   template: `
-    <h1>Welcome to {{ title() }}!</h1>
+    <app-header></app-header>
 
-    <router-outlet />
+    <h1>{{ title() }}</h1>
+
+    <router-outlet></router-outlet>
   `,
-  styles: [],
 })
 export class App {
-  protected readonly title = signal('first-ng-app');
+  title = signal('My Angular App');
 }
